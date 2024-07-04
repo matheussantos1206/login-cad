@@ -10,3 +10,16 @@ function acessar(){
         window.location.href = 'cadastro.html';
     }
 } 
+
+//FUNÇÃO QUE ARMAZENA EM ARRAY NOME NA TELA DE CADASTRO
+
+var dadosListas = [];
+function salvarUser(){
+    let nomeUser = document.getElementById('nomeUser').value;
+
+    if(nomeUser){
+
+    }else{
+        alert("favor informar o nome para o cadastro");
+    }
+}
