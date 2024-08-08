@@ -19,7 +19,8 @@ function salvarUser() {
 
     if (nomeUser) {
         dadosListas.push(nomeUser)
-        console.log(dadosListas);
+        //console.log(dadosListas);
+        criaLista();
         document.getElementById('nomeUser').value = "";
     } else {
         alert("favor informar o nome para o cadastro");
@@ -29,8 +30,16 @@ function salvarUser() {
 // FUNÇÃO PARA CRIAR LISTA
 function criaLista() {
     let tabela = document.getElementById('tabela').innerHTML = "<tr><th>Nome Usuário</th><th>Ações</th></tr>";
-    for (let i = 0; i <= (dadosLista.length - 1); i++) {
-        tabela += "<tr><td>" + dadosLista[i] + "</td><td></td></tr>";
+    for (let i = 0; i <= (dadosListas.length - 1); i++) {
+        tabela += "<tr><td>" + dadosListas[i] + "</td><td> <button type='button' onclick='editar(this.parentNode.parentNode.rowIndex)'>Editar</button> </td></tr>";
         document.getElementById('tabela').innerHTML = tabela;
     }
+}
+
+
+//FUNÇÃO EDITA O NOME DA LISTA 
+
+function editar(i){
+     document.getElementById('nomeUser').value = dadosListas[(i -1)];
+     dadosListas.splice(dadosListas[(i - 1)], 1);
 }
