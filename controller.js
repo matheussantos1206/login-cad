@@ -47,7 +47,7 @@ function criaLista() {
     // Itera sobre o array 'dadosListas' para criar uma linha para cada nome
     for (let i = 0; i <= (dadosListas.length - 1); i++) {
         // Adiciona uma nova linha à tabela com o nome e um botão para editar
-        tabela += "<tr><td>" + dadosListas[i] + "</td><td> <button type='button' onclick='editar(this.parentNode.parentNode.rowIndex)' class='btn btn-warning'>Editar</button> </td></tr>";
+        tabela += "<tr><td>" + dadosListas[i] + "</td><td> <button type='button' onclick='editar(this.parentNode.parentNode.rowIndex)' class='btn btn-warning'>Editar</button> <button type='button' onclick='excluir(this.parentNode.parentNode.rowIndex)' class='btn btn-warning'>Excluir</button></td></tr>";
     }
 
     // Atualiza o conteúdo da tabela no DOM com a nova lista
@@ -59,5 +59,17 @@ function editar(i) {
     // Define o valor do campo de entrada 'nomeUser' para o nome a ser editado
     document.getElementById('nomeUser').value = dadosListas[(i - 1)];
     // Remove o nome do array 'dadosListas' (esse comando está incorreto, o correto seria usar dadosListas.splice(i - 1, 1))
-    dadosListas.splice(dadosListas[(i - 1)], 1);
+    dadosListas.splice(dadosListas((i - 1)), 1);
 }
+//função que exclui o nome da lista
+function excluir(i){
+    // Remove um item do array 'dadosListas' na posição (i-1)
+    dadosListas.splice((i-1), 1);
+    
+    // Remove a linha correspondente da tabela HTML com o ID 'tabela'
+    document.getElementById('tabela').deleteRow(i);
+    
+    // Limpa o valor do campo de input com o ID 'nomeUser'
+    document.getElementById('nomeUser').value = "";
+}
+
