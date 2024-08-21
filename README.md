@@ -71,7 +71,7 @@ Funcionalidades Compartilhadas:
 
 ## ``Resultado``
 
-![resultado final](img/resultado.gif)
+![resultado final](img/resultado-2.0.gif)
 
 
 ## Referências
